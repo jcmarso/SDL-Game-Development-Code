@@ -261,7 +261,7 @@ void InputHandler::clean()
 {
 	if (m_bJoysticksInitialised)
 	{
-		for (unsigned i = 0; i < SDL_NumJoysticks(); i++)
+		for (size_t i = 0; i < SDL_NumJoysticks(); i++)
 		{
 			SDL_JoystickClose(m_joysticks[i]);
 		}

@@ -10,6 +10,10 @@
 #include "Enemy.h"
 #include "LoaderParams.h"
 #include "InputHandler.h"
+#include "MenuState.h"
+#include "GameState.h"
+#include "PlayState.h"
+#include "GameStateMachine.h"
 
 class Game
 {
@@ -42,6 +46,7 @@ private:
 	bool m_bRunning = false;
 	std::vector<GameObject*> m_gameObjects;
 	static Game* s_pInstance;
+	GameStateMachine* m_pGameStateMachine;
 };
 typedef Game TheGame;
 #endif /* defined(__Game__) */

@@ -26,6 +26,7 @@ public:
 		}
 		return s_pInstance;
 	}
+	void clearFromTextureMap(std::string id);
 };
 typedef TextureManager TheTextureManager;
 #endif /* defined( __TextureManager__) */
