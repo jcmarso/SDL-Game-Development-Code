@@ -267,3 +267,9 @@ void InputHandler::clean()
 		}
 	}
 }
+void InputHandler::reset() {
+	for (int i = 0; i < 3; i++)
+	{
+		m_mouseButtonStates.push_back(false);
+	}
+}

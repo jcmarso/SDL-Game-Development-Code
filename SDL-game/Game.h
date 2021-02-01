@@ -23,8 +23,7 @@ public:
 	void update();
 	void handleEvents();
 	void clean();
-	void quit() {}
-
+	void quit() { m_bRunning = false; }
 	bool running() { return m_bRunning; }
 	SDL_Renderer* getRenderer() const { return m_pRenderer; }
 	static Game* Instance()
@@ -36,6 +35,7 @@ public:
 		}
 		return s_pInstance;
 	}
+	GameStateMachine* getStateMachine() { return m_pGameStateMachine; }
 private:
 	Game() {}
 	~Game() {}

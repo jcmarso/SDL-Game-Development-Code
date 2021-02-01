@@ -44,6 +44,7 @@ public:
 	bool isKeyDown(SDL_Scancode key);
 	void update();
 	void clean();
+	void reset();
 private:
 	InputHandler();
 	~InputHandler() {}
