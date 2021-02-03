@@ -2,12 +2,15 @@
 #define __GameOverState__
 
 #include "GameState.h"
+#include "TextureManager.h"
+#include "GameObject.h"
 #include "Game.h"
-#include "AnimatedGraphic.h"
+#include "MainMenuState.h"
+#include <string>
 #include <vector>
 
 class GameObject;
-class GameOverState : public GameState
+class GameOverState : public MenuState
 {
 public:
 	virtual void update();
@@ -16,6 +19,7 @@ public:
 	virtual bool onExit();
 	virtual std::string getStateID() const { return s_gameOverID; }
 private:
+	virtual void setCallbacks(const std::vector<Callback>& callbacks);
 	static void s_gameOverToMain();
 	static void s_restartPlay();
 	static const std::string s_gameOverID;

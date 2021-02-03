@@ -2,15 +2,20 @@
 #define __MenuButton__
 
 #include "SDLGameObject.h"
+#include "LoaderParams.h"
+#include "GameObjectFactory.h"
 #include "InputHandler.h"
 
 class MenuButton : public SDLGameObject
 {
 public:
-	MenuButton(const LoaderParams* pParams, void (*callback)());
+	MenuButton();
+	virtual void load(const LoaderParams* pParams);
 	virtual void draw();
 	virtual void update();
 	virtual void clean();
+	void setCallback(void(*callback)()) { m_callback = callback; }
+	int getCallbackID() { return m_callbackID; }
 private:
 	enum button_state
 	{
@@ -20,5 +25,14 @@ private:
 	};
 	void (*m_callback)();
 	bool m_bReleased = false;
+	int m_callbackID;
+};
+
+class MenuButtonCreator : public BaseCreator
+{
+	GameObject* createGameObject() const
+	{
+		return new MenuButton();
+	}
 };
 #endif /* defined(__MenuButton__) */

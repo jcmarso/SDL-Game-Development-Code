@@ -3,11 +3,11 @@
 
 #include "GameState.h"
 #include "Game.h"
-#include <string>
+#include "TextureManager.h"
 #include <vector>
 
 class GameObject;
-class PauseState : public GameState
+class PauseState : public MenuState
 {
 public:
 	virtual void update();
@@ -15,7 +15,9 @@ public:
 	virtual bool onEnter();
 	virtual bool onExit();
 	virtual std::string getStateID() const { return s_pauseID; }
+	
 private:
+	virtual void setCallbacks(const std::vector<Callback>& callbacks);
 	static void s_pauseToMain();
 	static void s_resumePlay();
 	static const std::string s_pauseID;

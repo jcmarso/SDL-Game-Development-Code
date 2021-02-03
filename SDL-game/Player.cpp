@@ -1,17 +1,22 @@
 #include "Player.h"
+#include "InputHandler.h"
 
-Player::Player(const LoaderParams* pParams) : SDLGameObject(pParams) {}
-
+Player::Player() : SDLGameObject()
+{
+	
+}
+void Player::load(const LoaderParams* pParams)
+{
+	SDLGameObject::load(pParams);
+}
 void Player::draw()
 {
 	SDLGameObject::draw(); // we now use SDLGameObject
 }
 void Player::update()
 {
-	m_velocity.setX(0);
-	m_velocity.setY(0);
 	handleInput(); // add our function
-	m_currentFrame = int(((SDL_GetTicks() / 100) % 5));
+	m_currentFrame = int(((SDL_GetTicks() / 100) % m_numFrames));
 	SDLGameObject::update();
 }
 void Player::handleInput()

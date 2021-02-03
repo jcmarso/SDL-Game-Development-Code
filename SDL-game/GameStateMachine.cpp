@@ -20,10 +20,10 @@ void GameStateMachine::changeState(GameState* pState)
 {
 	if (!m_gameStates.empty())
 	{
-		if (m_gameStates.back()->getStateID() == pState->getStateID())
+		/*if (m_gameStates.back()->getStateID() == pState->getStateID())
 		{
 			return; // do nothing
-		}
+		}*/
 		if (m_gameStates.back()->onExit())
 		{
 			delete m_gameStates.back();

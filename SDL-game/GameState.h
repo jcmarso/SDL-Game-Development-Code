@@ -1,10 +1,15 @@
 #ifndef __GameState__
 #define __GameState__
 
-#include<string>
+#include <string>
+#include <vector>
+
 
 class GameState
 {
+protected:
+	std::vector<std::string> m_textureIDList;
+
 public:
 	virtual void update() = 0;
 	virtual void render() = 0;

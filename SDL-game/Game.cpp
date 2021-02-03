@@ -1,4 +1,9 @@
 #include "Game.h"
+#include "MainMenuState.h"
+#include "MenuButton.h"
+#include "Enemy.h"
+#include "Player.h"
+#include "AnimatedGraphic.h"
 #include <iostream>
 
 Game* Game::s_pInstance = 0;
@@ -25,11 +30,6 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 			if (m_pRenderer != 0) // renderer init success
 			{
 				std::cout << "renderer creation success\n";
-				/*SDL_SetRenderDrawColor(m_pRenderer, 255, 0, 0, 255);
-				m_gameObjects.push_back(new Player(new LoaderParams(100, 100, 128, 82,
-					"animate")));
-				m_gameObjects.push_back(new Enemy(new LoaderParams(300, 300, 128, 82,
-					"animate")));*/
 			}
 			else
 			{
@@ -48,16 +48,18 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		std::cout << "SDL init fail\n";
 		return false; // SDL init fail
 	}
-	std::cout << "init success\n" << std::endl;
+	std::cout << "init success\n";
 	TheInputHandler::Instance()->initialiseJoysticks();
-	m_pGameStateMachine = new GameStateMachine();
-	m_pGameStateMachine->changeState(new MenuState());
 	m_bRunning = true; // everything initialized successfully, start the main loop
-	
-	if (!TheTextureManager::Instance()->load("assets/animate-alpha.png", "animate", m_pRenderer))
-	{
-		return false;
-	}
+
+	TheGameObjectFactory::Instance()->registerType("MenuButton", new MenuButtonCreator());
+	TheGameObjectFactory::Instance()->registerType("Player", new PlayerCreator());
+	TheGameObjectFactory::Instance()->registerType("Enemy", new EnemyCreator());
+	TheGameObjectFactory::Instance()->registerType("AnimatedGraphic", new AnimatedGraphicCreator());
+
+	m_pGameStateMachine = new GameStateMachine();
+	m_pGameStateMachine->changeState(new MainMenuState());
+
 	return true;
 }
 

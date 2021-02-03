@@ -1,21 +1,22 @@
 #include "PlayState.h"
 #include "MenuState.h"
+#include "PauseState.h"
+#include "GameOverState.h"
+#include "Enemy.h"
+#include "Player.h"
 
 const std::string PlayState::s_playID = "PLAY";
 void PlayState::update()
 {
 	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_ESCAPE))
 	{
-		TheGame::Instance()->getStateMachine()->pushState(new
-			PauseState());
+		TheGame::Instance()->getStateMachine()->pushState(new PauseState());
 	}
 	for (int i = 0; i < m_gameObjects.size(); i++)
 	{
 		m_gameObjects[i]->update();
 	}
-	if (checkCollision(dynamic_cast<SDLGameObject*>
-		(m_gameObjects[0]), dynamic_cast<SDLGameObject*>
-		(m_gameObjects[1])))
+	if (checkCollision(dynamic_cast<SDLGameObject*>(m_gameObjects[0]), dynamic_cast<SDLGameObject*>(m_gameObjects[1])))
 	{
 		TheGame::Instance()->getStateMachine()->pushState(new GameOverState());
 	}
@@ -29,22 +30,9 @@ void PlayState::render()
 }
 bool PlayState::onEnter()
 {
-	if (!TheTextureManager::Instance()->load("assets/helicopter.png",
-		"helicopter", TheGame::Instance()->getRenderer()))
-	{
-		return false;
-	}
-	if (!TheTextureManager::Instance()->load("assets/helicopter2.png", "helicopter2",
-			TheGame::Instance()->getRenderer()))
-	{
-		return false;
-	}
-	GameObject* player = new Player(new LoaderParams(500, 100, 128,
-		55, "helicopter"));
-	GameObject* enemy = new Enemy(new LoaderParams(100, 100, 128,
-		55, "helicopter2"));
-	m_gameObjects.push_back(player);
-	m_gameObjects.push_back(enemy);
+	// parse the state
+	StateParser stateParser;
+	stateParser.parseState("test.xml", s_playID, &m_gameObjects, &m_textureIDList);
 	std::cout << "entering PlayState\n";
 	return true;
 }
@@ -54,9 +42,14 @@ bool PlayState::onExit()
 	{
 		m_gameObjects[i]->clean();
 	}
+
 	m_gameObjects.clear();
-	TheTextureManager::Instance()
-		->clearFromTextureMap("helicopter");
+	// clear the texture manager
+	for (int i = 0; i < m_textureIDList.size(); i++)
+	{
+		TheTextureManager::Instance()->
+			clearFromTextureMap(m_textureIDList[i]);
+	}
 	std::cout << "exiting PlayState\n";
 	return true;
 }

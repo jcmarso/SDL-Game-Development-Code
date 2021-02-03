@@ -40,7 +40,7 @@ void InputHandler::initialiseJoysticks()
 		}
 		SDL_JoystickEventState(SDL_ENABLE);
 		m_bJoysticksInitialised = true;
-		std::cout << "Initialised " << m_joysticks.size() << "joystick(s)";
+		std::cout << "Initialised " << m_joysticks.size() << " joystick(s)" << std::endl;
 	}
 	else
 	{
@@ -270,6 +270,6 @@ void InputHandler::clean()
 void InputHandler::reset() {
 	for (int i = 0; i < 3; i++)
 	{
-		m_mouseButtonStates.push_back(false);
+		m_mouseButtonStates.at(i) = false;
 	}
 }

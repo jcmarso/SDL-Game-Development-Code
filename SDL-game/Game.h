@@ -2,18 +2,14 @@
 #define __Game__
 
 #include <SDL.h>
-#include <vector>
-#include "SDLGameObject.h"
-#include "TextureManager.h"
+#include <SDL_image.h>
 #include "GameObject.h"
-#include "Player.h"
-#include "Enemy.h"
-#include "LoaderParams.h"
+#include "GameStateMachine.h"
 #include "InputHandler.h"
 #include "MenuState.h"
-#include "GameState.h"
+#include "TextureManager.h"
 #include "PlayState.h"
-#include "GameStateMachine.h"
+#include <vector>
 
 class Game
 {

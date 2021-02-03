@@ -1,13 +1,11 @@
 #ifndef __PlayState__
 #define __PlayState__
 
-#include "MenuState.h"
+#include "SDLGameObject.h"
 #include "GameState.h"
-#include "TextureManager.h"
+#include "InputHandler.h"
 #include "Game.h"
-#include "PauseState.h"
-#include "GameOverState.h"
-#include <iostream>
+#include <vector>
 #include <string>
 
 class PlayState : public GameState
