@@ -28,6 +28,7 @@ public:
 		return s_pInstance;
 	}
 	void clearFromTextureMap(std::string id);
+	void drawTile(std::string id, int margin, int spacing, int x, int y, int width, int height, int currentRow, int currentFrame, SDL_Renderer* pRenderer);
 };
 typedef TextureManager TheTextureManager;
 #endif /* defined( __TextureManager__) */

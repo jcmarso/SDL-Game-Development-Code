@@ -1,6 +1,7 @@
 #include "GameOverState.h"
 #include "AnimatedGraphic.h"
 #include "PauseState.h"
+#include "PlayState.h"
 
 const std::string GameOverState::s_gameOverID = "GAMEOVER";
 

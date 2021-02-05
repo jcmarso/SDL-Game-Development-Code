@@ -4,6 +4,7 @@
 #include "Enemy.h"
 #include "Player.h"
 #include "AnimatedGraphic.h"
+#include "PlayState.h"
 #include <iostream>
 
 Game* Game::s_pInstance = 0;

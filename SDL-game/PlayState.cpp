@@ -3,6 +3,7 @@
 #include "PauseState.h"
 #include "GameOverState.h"
 #include "Enemy.h"
+#include "LevelParser.h"
 #include "Player.h"
 
 const std::string PlayState::s_playID = "PLAY";
@@ -27,12 +28,15 @@ void PlayState::render()
 	{
 		m_gameObjects[i]->draw();
 	}
+	/*pLevel->render();*/
 }
 bool PlayState::onEnter()
 {
 	// parse the state
 	StateParser stateParser;
 	stateParser.parseState("test.xml", s_playID, &m_gameObjects, &m_textureIDList);
+	/*LevelParser levelParser;
+	pLevel = levelParser.parseLevel("assets/map1.tmx");*/
 	std::cout << "entering PlayState\n";
 	return true;
 }
