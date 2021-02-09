@@ -5,7 +5,6 @@
 #include "zlib.h"
 #include "base64.h"
 
-
 Level* LevelParser::parseLevel(const char* levelFile)
 {
 	// create a TinyXML document and load the map XML
@@ -67,7 +66,7 @@ void LevelParser::parseTileLayer(TiXmlElement* pTileElement,
 	// tile data
 	std::vector<std::vector<int>> data;
 	std::string decodedIDs;
-	TiXmlElement* pDataNode;
+	TiXmlElement* pDataNode{};
 	for (TiXmlElement* e = pTileElement->FirstChildElement(); e !=
 		NULL; e = e->NextSiblingElement())
 	{
@@ -76,8 +75,7 @@ void LevelParser::parseTileLayer(TiXmlElement* pTileElement,
 			pDataNode = e;
 		}
 	}
-	for (TiXmlNode* e = pDataNode->FirstChild(); e != NULL; e =
-		e->NextSibling())
+	for (TiXmlNode* e = pDataNode->FirstChild(); e != NULL; e = e->NextSibling())
 	{
 		TiXmlText* text = e->ToText();
 		std::string t = text->Value();

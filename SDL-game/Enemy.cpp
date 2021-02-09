@@ -1,4 +1,5 @@
 #include "Enemy.h"
+#include "SDL.h"
 
 Enemy::Enemy() : SDLGameObject()
 {
@@ -26,4 +27,3 @@ void Enemy::update()
 	}
 	SDLGameObject::update();
 }
-

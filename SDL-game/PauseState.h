@@ -1,9 +1,9 @@
 #ifndef __PauseState__
 #define __PauseState__
 
+#include "GameObject.h"
 #include "MenuState.h"
-#include "Game.h"
-#include "TextureManager.h"
+#include <string>
 #include <vector>
 
 class GameObject;

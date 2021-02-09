@@ -1,4 +1,5 @@
 #include "GameObjectFactory.h"
+#include <iostream>
 
 GameObjectFactory* GameObjectFactory::s_pInstance = 0;
 

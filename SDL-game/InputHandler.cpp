@@ -1,4 +1,6 @@
 #include "InputHandler.h"
+#include "Game.h"
+#include <iostream>
 
 InputHandler* InputHandler::s_pInstance = 0;
 

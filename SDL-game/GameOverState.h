@@ -1,11 +1,8 @@
 #ifndef __GameOverState__
 #define __GameOverState__
 
-#include "GameState.h"
-#include "TextureManager.h"
 #include "GameObject.h"
-#include "Game.h"
-#include "MainMenuState.h"
+#include "MenuState.h"
 #include <string>
 #include <vector>
 

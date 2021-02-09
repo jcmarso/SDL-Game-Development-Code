@@ -16,4 +16,3 @@ private:
 	std::vector<GameState*> m_gameStates;
 };
 #endif /* defined(__GameStateMachine__) */
-

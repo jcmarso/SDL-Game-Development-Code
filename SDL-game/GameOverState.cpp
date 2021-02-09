@@ -1,7 +1,10 @@
 #include "GameOverState.h"
-#include "AnimatedGraphic.h"
-#include "PauseState.h"
+#include "TextureManager.h"
+#include "Game.h"
+#include "StateParser.h"
+#include "MainMenuState.h"
 #include "PlayState.h"
+#include "MenuButton.h"
 
 const std::string GameOverState::s_gameOverID = "GAMEOVER";
 

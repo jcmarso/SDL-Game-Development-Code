@@ -1,10 +1,10 @@
 #ifndef __SDLGameObject__
 #define __SDLGameObject__
 
-#include <SDL.h>
-#include <string>
 #include "GameObject.h"
 #include "Vector2D.h"
+#include <SDL.h>
+#include <string>
 
 class SDLGameObject : public GameObject
 {

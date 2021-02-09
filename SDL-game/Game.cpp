@@ -5,7 +5,9 @@
 #include "Player.h"
 #include "AnimatedGraphic.h"
 #include "PlayState.h"
+#include "InputHandler.h"
 #include <iostream>
+#include <vector>
 
 Game* Game::s_pInstance = 0;
 
@@ -31,6 +33,7 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 			if (m_pRenderer != 0) // renderer init success
 			{
 				std::cout << "renderer creation success\n";
+				SDL_SetRenderDrawColor(m_pRenderer, 0, 255, 255, 255);
 			}
 			else
 			{
@@ -52,6 +55,9 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	std::cout << "init success\n";
 	TheInputHandler::Instance()->initialiseJoysticks();
 	m_bRunning = true; // everything initialized successfully, start the main loop
+
+	m_gameWidth = width;
+	m_gameHeight = height;
 
 	TheGameObjectFactory::Instance()->registerType("MenuButton", new MenuButtonCreator());
 	TheGameObjectFactory::Instance()->registerType("Player", new PlayerCreator());

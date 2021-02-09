@@ -1,4 +1,5 @@
 #include "TextureManager.h"
+#include <SDL_image.h>
 
 TextureManager* TextureManager::s_pInstance = 0;
 
@@ -22,8 +23,7 @@ bool TextureManager::load(std::string fileName, std::string
 	// reaching here means something went wrong
 	return false;
 }
-void TextureManager::draw(std::string id, int x, int y, int
-	width, int height, SDL_Renderer* pRenderer,
+void TextureManager::draw(std::string id, int x, int y, int width, int height, SDL_Renderer* pRenderer,
 	SDL_RendererFlip flip)
 {
 	SDL_Rect srcRect{};

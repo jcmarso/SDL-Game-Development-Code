@@ -4,11 +4,11 @@
 #include <SDL.h>
 #include "GameObject.h"
 #include "GameStateMachine.h"
-#include <vector>
 
 class Game
 {
 public:
+	~Game() {}
 	bool init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen);
 	void render();
 	void update();
@@ -36,14 +36,12 @@ public:
 		return m_gameHeight;
 	}
 private:
-	Game() {}
-	~Game() {}
+	Game() {};
 	SDL_Window* m_pWindow;
 	SDL_Renderer* m_pRenderer;
 	SDL_Texture* m_pTexture;
 	int m_currentFrame;
-	bool m_bRunning = false;
-	std::vector<GameObject*> m_gameObjects;
+	bool m_bRunning;
 	static Game* s_pInstance;
 	GameStateMachine* m_pGameStateMachine;
 	int m_gameWidth;

@@ -3,9 +3,7 @@
 
 #include "SDL.h"
 #include "Vector2D.h"
-#include "Game.h"
 #include <vector>
-#include <iostream>
 
 enum mouse_buttons
 {

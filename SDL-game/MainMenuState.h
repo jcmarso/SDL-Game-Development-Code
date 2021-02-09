@@ -3,11 +3,8 @@
 
 #include "MenuState.h"
 #include "GameObject.h"
-#include "StateParser.h"
-#include "TextureManager.h"
-#include "Game.h"
-#include "MenuButton.h"
 #include <vector>
+#include <string>
 
 class MainMenuState : public MenuState
 {

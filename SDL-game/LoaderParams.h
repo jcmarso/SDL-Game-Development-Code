@@ -1,7 +1,7 @@
 #ifndef __LoaderParams__
 #define __LoaderParams__
 
-#include <iostream>
+#include <string>
 
 class LoaderParams
 {
