@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="32" tileheight="32" infinite="0" nextlayerid="2" nextobjectid="1">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="60" height="15" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="3">
+ <properties>
+  <property name="helicopter" value="assets/helicopter.png"/>
+ </properties>
  <tileset firstgid="1" name="blocks1" tilewidth="32" tileheight="32" spacing="2" margin="2" tilecount="198" columns="18">
   <image source="../../../../../../SDL2/VisualC/SDL-game/assets/blocks1.png" width="614" height="376"/>
  </tileset>
- <layer id="1" name="Tile Layer 1" width="20" height="15">
+ <layer id="1" name="Tile Layer 1" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgcIBmIU4A4lU72xQFxPBAn0MGuRCBOooM9xNpF77CmBpAAYkkglgJiaSCWAWJZCtTzAbE2GubFYx4h9aPm0cc8AMryDsc=
+   eJxjYBgFo2DkgkQgTsIhFwfE8UCcQIJ5yUCcAsSpRKrHZwc59o+C4Q1okSbw5QFcgNR0PhTAUMxvAxkPwzENjIJRQCqQAGJJIJYCYmkgliGCL43Elh1i5vEBsQgFmHfUvEFrHgAG0RjB
   </data>
  </layer>
+ <objectgroup name="Object Layer 1" width="60" height="15">
+  <object name="Helicopter1" type="Player" x="32" y="32" width="32" height="32">
+   <properties>
+    <property name="numFrames" value="5"/>
+    <property name="textureHeight" value="55"/>
+    <property name="textureID" value="helicopter"/>
+    <property name="textureWidth" value="128"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>
